@@ -1,0 +1,49 @@
+﻿@model List<Employee>
+
+
+
+
+@Html.ActionLink("Create new", "Create", "Employee", htmlAttributes: new { @class = "btn btn-primary" })
+<br />
+<br />
+<br />
+
+<table class="table table-hover table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(www => www[0].Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(www => www[0].FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(www => www[0].Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(www => www[0].Url)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(ww => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(ww => item.FName)
+            </td>
+            <td>
+                @Html.DisplayFor(ww => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(ww => item.Url)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Employee", routeValues: new { id = item.Id, name = item.FName }, htmlAttributes: new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Details", "Details", "Employee", routeValues: new { id = item.Id, name = item.FName }, htmlAttributes: new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Delete", "Delete", "Employee", routeValues: new { id = item.Id, name = item.FName }, htmlAttributes: new { @class = "btn btn-danger", onclick = $"return confirm ('Sure Delete {item.FName}!!!')" })
+            </td>
+        </tr>
+    }
+</table>
